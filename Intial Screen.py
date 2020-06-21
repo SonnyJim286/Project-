@@ -59,6 +59,22 @@ class Ui_IntialScreen(object):
         self.Createtimetable.setText(_translate("IntialScreen", "Create timetable"))
         self.Viewtimetable.setText(_translate("IntialScreen", "View timetable"))
         self.Logo.setText(_translate("IntialScreen", "Logo still design"))
+        self.Createtimetable.setText(_translate("MainWindow", "Viewtimetable"))
+        self.Createtimetable.clicked.connect(self.View)
+
+    def View(self):
+        self.Viewer = QtWidgets.QMainWindow()
+        self.Viewerui = View Timetable Screen.ui.Ui_MainWindow()
+        self.childui.setupUi(self.childwin)
+        self.childwin.show()
+        self.childwin.setWindowTitle("CHILD")
+
+        self.childui.pushButton.clicked.connect(self.childOK)
+
+    def childOK(self):
+        self.lineEdit.setText(self.childui.lineEdit.text())
+        self.childwin.close()
+
 
 
 if __name__ == "__main__":

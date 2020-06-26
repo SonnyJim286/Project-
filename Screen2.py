@@ -8,10 +8,14 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import Screen1
+import Screen3
+import Screen4
 
 
 class Ui_ViewTimetableScreen(object):
     def setupUi(self, ViewTimetableScreen):
+        self.ViewTimetableScreen = ViewTimetableScreen
         ViewTimetableScreen.setObjectName("ViewTimetableScreen")
         ViewTimetableScreen.resize(731, 627)
         self.centralwidget = QtWidgets.QWidget(ViewTimetableScreen)
@@ -62,6 +66,38 @@ class Ui_ViewTimetableScreen(object):
         self.AddSt.setText(_translate("ViewTimetableScreen", "Add Student"))
         self.BottonSave.setText(_translate("ViewTimetableScreen", "Save"))
         self.ButtonBack.setText(_translate("ViewTimetableScreen", "Back"))
+        self.ButtonBack.clicked.connect(self.GoBack)
+        self.AddSt.setText(_translate("MainWindow", "Add Student"))
+        self.AddSt.clicked.connect(self.AddStudent)
+        self.AddSub.setText(_translate("MainWindow", "Add Subject"))
+        self.AddSub.clicked.connect(self.AddSubject)
+
+    def CloseWindow(self):
+        self.ViewTimetableScreen.destroy()
+
+    def AddStudent(self):
+        self.ADST = QtWidgets.QMainWindow()
+        self.ADSTui = Screen3.Ui_AddNewStScreen()
+        self.ADSTui.setupUi(self.ADST)
+        self.ADST.show()
+        self.ADST.setWindowTitle("Add New Student")
+        self.CloseWindow()
+
+    def AddSubject(self):
+        self.ADSU = QtWidgets.QMainWindow()
+        self.ADSUui = Screen4.Ui_AddNewSubScreen()
+        self.ADSUui.setupUi(self.ADSU)
+        self.ADSU.show()
+        self.ADSU.setWindowTitle("Add New Subject")
+        self.CloseWindow()
+
+    def GoBack(self):
+        self.GB = QtWidgets.QMainWindow()
+        self.GBui = Screen1.Ui_IntialScreen()
+        self.GBui.setupUi(self.GB)
+        self.GB.show()
+        self.GB.setWindowTitle("Intial Screen")
+        self.CloseWindow()
 
 
 if __name__ == "__main__":

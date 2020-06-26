@@ -8,10 +8,11 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import Screen2
 
 class Ui_AddNewStScreen(object):
     def setupUi(self, AddNewStScreen):
+        self.AddNewStScreen = AddNewStScreen
         AddNewStScreen.setObjectName("AddNewStScreen")
         AddNewStScreen.resize(800, 305)
         self.centralwidget = QtWidgets.QWidget(AddNewStScreen)
@@ -78,6 +79,18 @@ class Ui_AddNewStScreen(object):
         self.Sub.setText(_translate("AddNewStScreen", "Subject:"))
         self.ButtonAdd.setText(_translate("AddNewStScreen", "Add"))
         self.ButtonBack.setText(_translate("AddNewStScreen", "Back"))
+        self.ButtonBack.clicked.connect(self.GoBack)
+
+    def CloseWindow(self):
+        self.AddNewStScreen.destroy()
+
+    def GoBack(self):
+        self.GB = QtWidgets.QMainWindow()
+        self.GBui = Screen2.Ui_ViewTimetableScreen()
+        self.GBui.setupUi(self.GB)
+        self.GB.show()
+        self.GB.setWindowTitle("View Timetable")
+        self.CloseWindow()
 
 
 if __name__ == "__main__":

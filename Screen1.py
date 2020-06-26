@@ -57,14 +57,14 @@ class Ui_IntialScreen(object):
 
     def retranslateUi(self, IntialScreen):
         _translate = QtCore.QCoreApplication.translate
-        IntialScreen.setWindowTitle(_translate("IntialScreen", "MainWindow"))
+        IntialScreen.setWindowTitle(_translate("IntialScreen", "Intial Screen"))
         self.Title.setText(_translate("IntialScreen", "Schedule timetable"))
         self.Createtimetable.setText(_translate("IntialScreen", "Create timetable"))
         self.Viewtimetable.setText(_translate("IntialScreen", "View timetable"))
         self.Logo.setText(_translate("IntialScreen", "Logo still design"))
-        self.Viewtimetable.setText(_translate("MainWindow", "Viewtimetable"))
+        self.Viewtimetable.setText(_translate("IntialScreen", "Viewtimetable"))
         self.Viewtimetable.clicked.connect(self.View)
-        self.Createtimetable.setText(_translate("MainWindow", "Createtimetable"))
+        self.Createtimetable.setText(_translate("IntialScreen", "Createtimetable"))
         self.Createtimetable.clicked.connect(self.Create)
 
     def CloseWindow(self):

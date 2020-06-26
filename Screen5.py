@@ -8,10 +8,12 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import Screen1
 
 
 class Ui_CreateNewTimetableScreen(object):
     def setupUi(self, CreateNewTimetableScreen):
+        self.CreateNewTimetableScreen = CreateNewTimetableScreen
         CreateNewTimetableScreen.setObjectName("CreateNewTimetableScreen")
         CreateNewTimetableScreen.resize(800, 318)
         self.centralwidget = QtWidgets.QWidget(CreateNewTimetableScreen)
@@ -86,6 +88,20 @@ class Ui_CreateNewTimetableScreen(object):
         self.SubSF.setText(_translate("CreateNewTimetableScreen", "Select file"))
         self.Create.setText(_translate("CreateNewTimetableScreen", "Create"))
         self.Back.setText(_translate("CreateNewTimetableScreen", "Back"))
+        self.Back.setText(_translate("MainWindow", "Back"))
+        self.Back.clicked.connect(self.GoBack)
+
+    def CloseWindow(self):
+        self.CreateNewTimetableScreen.destroy()
+
+    def GoBack(self):
+        self.GB = QtWidgets.QMainWindow()
+        self.GBui = Screen1.Ui_IntialScreen()
+        self.GBui.setupUi(self.GB)
+        self.GB.show()
+        self.GB.setWindowTitle("Intial Screen")
+        self.CloseWindow()
+
 
 
 if __name__ == "__main__":

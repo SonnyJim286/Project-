@@ -8,10 +8,12 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import Screen2
 
 
 class Ui_AddNewSubScreen(object):
     def setupUi(self, AddNewSubScreen):
+        self.AddNewStScreen = AddNewSubScreen
         AddNewSubScreen.setObjectName("AddNewSubScreen")
         AddNewSubScreen.resize(800, 228)
         self.centralwidget = QtWidgets.QWidget(AddNewSubScreen)
@@ -40,12 +42,12 @@ class Ui_AddNewSubScreen(object):
         font.setPointSize(16)
         self.ButtonAdd.setFont(font)
         self.ButtonAdd.setObjectName("ButtonAdd")
-        self.BttonBack = QtWidgets.QPushButton(self.centralwidget)
-        self.BttonBack.setGeometry(QtCore.QRect(700, 130, 91, 41))
+        self.ButtonBack = QtWidgets.QPushButton(self.centralwidget)
+        self.ButtonBack.setGeometry(QtCore.QRect(700, 130, 91, 41))
         font = QtGui.QFont()
         font.setPointSize(16)
-        self.BttonBack.setFont(font)
-        self.BttonBack.setObjectName("BttonBack")
+        self.ButtonBack.setFont(font)
+        self.ButtonBack.setObjectName("ButtonBack")
         AddNewSubScreen.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(AddNewSubScreen)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 26))
@@ -64,7 +66,20 @@ class Ui_AddNewSubScreen(object):
         self.label.setText(_translate("AddNewSubScreen", "Add New Subject"))
         self.SubjectName.setText(_translate("AddNewSubScreen", "Subject Name:"))
         self.ButtonAdd.setText(_translate("AddNewSubScreen", "Add"))
-        self.BttonBack.setText(_translate("AddNewSubScreen", "Back"))
+        self.ButtonBack.setText(_translate("AddNewSubScreen", "Back"))
+        self.ButtonBack.clicked.connect(self.GoBack)
+
+
+    def CloseWindow(self):
+        self.AddNewStScreen.destroy()
+
+    def GoBack(self):
+        self.GB = QtWidgets.QMainWindow()
+        self.GBui = Screen2.Ui_ViewTimetableScreen()
+        self.GBui.setupUi(self.GB)
+        self.GB.show()
+        self.GB.setWindowTitle("View Timetable")
+        self.CloseWindow()
 
 
 if __name__ == "__main__":

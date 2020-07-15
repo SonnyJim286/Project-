@@ -90,6 +90,7 @@ class Ui_CreateNewTimetableScreen(object):
         self.Back.setText(_translate("CreateNewTimetableScreen", "Back"))
         self.Back.setText(_translate("MainWindow", "Back"))
         self.Back.clicked.connect(self.GoBack)
+        self.StISF.clicked.connect(self.StChoose)
 
     def CloseWindow(self):
         self.CreateNewTimetableScreen.destroy()
@@ -101,6 +102,9 @@ class Ui_CreateNewTimetableScreen(object):
         self.GB.show()
         self.GB.setWindowTitle("Intial Screen")
         self.CloseWindow()
+    
+    def StChoose(self):
+        self.
 
 
 

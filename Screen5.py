@@ -9,6 +9,8 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import Screen1
+import tkinter as tk
+from tkinter import filedialog
 
 
 class Ui_CreateNewTimetableScreen(object):
@@ -91,6 +93,7 @@ class Ui_CreateNewTimetableScreen(object):
         self.Back.setText(_translate("MainWindow", "Back"))
         self.Back.clicked.connect(self.GoBack)
         self.StISF.clicked.connect(self.StChoose)
+        self.SubSF.clicked.connect(self.SubChoose)
 
     def CloseWindow(self):
         self.CreateNewTimetableScreen.destroy()
@@ -104,7 +107,25 @@ class Ui_CreateNewTimetableScreen(object):
         self.CloseWindow()
     
     def StChoose(self):
-        self.
+        root = tk.Tk()
+        root.withdraw()
+
+        StIFpath = filedialog.askdirectory() 
+        STIF = filedialog.askopenfilename() 
+
+        print('Student information file location:',StIFpath)
+        print('Student information file location and fall name:',STIF)
+
+    def SubChoose(self):
+        root = tk.Tk()
+        root.withdraw()
+
+        Folderpath = filedialog.askdirectory() 
+        Filepath = filedialog.askopenfilename() 
+
+        print('Folderpath:',Folderpath)
+        print('Filepath:',Filepath)
+
 
 
 

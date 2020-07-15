@@ -34,10 +34,12 @@ class Ui_IntialScreen(object):
         font.setPointSize(20)
         self.Viewtimetable.setFont(font)
         self.Viewtimetable.setObjectName("Viewtimetable")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(500, 20, 101, 111))
-        self.label.setScaledContents(True)
-        self.label.setObjectName("label")
+        self.Logo = QtWidgets.QLabel(self.centralwidget)
+        self.Logo.setGeometry(QtCore.QRect(490, 40, 221, 51))
+        self.Logo.setText("")
+        self.Logo.setTextFormat(QtCore.Qt.RichText)
+        self.Logo.setPixmap(QtGui.QPixmap("2222.jpg"))
+        self.Logo.setScaledContents(True)
         IntialScreen.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(IntialScreen)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 709, 26))
@@ -56,7 +58,7 @@ class Ui_IntialScreen(object):
         self.Title.setText(_translate("IntialScreen", "Schedule timetable"))
         self.Createtimetable.setText(_translate("IntialScreen", "Create timetable"))
         self.Viewtimetable.setText(_translate("IntialScreen", "View timetable"))
-        self.label.setText(_translate("IntialScreen", "<html><head/><body><p><img src=\":/1/F:/学习/12Y/CMP/Git/SoftDev1/Project/2222.jpg\"/></p></body></html>"))
+        self.Logo.setPixmap(_translate("IntialScreen", "<html><head/><body><p><img src=\":/1/F:/学习/12Y/CMP/Git/SoftDev1/Project/2222.jpg\"/></p></body></html>"))
 #import Logo_rc
 
 

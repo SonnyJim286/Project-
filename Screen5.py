@@ -120,11 +120,11 @@ class Ui_CreateNewTimetableScreen(object):
         root = tk.Tk()
         root.withdraw()
 
-        Folderpath = filedialog.askdirectory() 
-        Filepath = filedialog.askopenfilename() 
+        SUBIFpath = filedialog.askdirectory() 
+        SUBIF = filedialog.askopenfilename() 
 
-        print('Folderpath:',Folderpath)
-        print('Filepath:',Filepath)
+        print('Subject information file location:',SUBIFpath)
+        print('Subject information file location and fall name:',SUBIF)
 
 
 

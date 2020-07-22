@@ -58,8 +58,8 @@ class Ui_IntialScreen(object):
         self.Title.setText(_translate("IntialScreen", "Schedule timetable"))
         self.Createtimetable.setText(_translate("IntialScreen", "Create timetable"))
         self.Viewtimetable.setText(_translate("IntialScreen", "View timetable"))
-        self.Logo.setPixmap(_translate("IntialScreen", "<html><head/><body><p><img src=\":/1/F:/学习/12Y/CMP/Git/SoftDev1/Project/2222.jpg\"/></p></body></html>"))
-#import Logo_rc
+
+
 
 
 if __name__ == "__main__":

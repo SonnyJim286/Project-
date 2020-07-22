@@ -71,6 +71,14 @@ class Ui_AddNewStScreen(object):
         self.retranslateUi(AddNewStScreen)
         QtCore.QMetaObject.connectSlotsByName(AddNewStScreen)
 
+        self.Subject.addItem("")
+        self.Subject.addItem("Chinese")
+        self.Subject.addItem("EAL")
+        self.Subject.addItem("Math")
+        self.Subject.addItem("Computing")
+        self.Subject.addItem("PE")
+
+
     def retranslateUi(self, AddNewStScreen):
         _translate = QtCore.QCoreApplication.translate
         AddNewStScreen.setWindowTitle(_translate("AddNewStScreen", "MainWindow"))
@@ -80,6 +88,7 @@ class Ui_AddNewStScreen(object):
         self.ButtonAdd.setText(_translate("AddNewStScreen", "Add"))
         self.ButtonBack.setText(_translate("AddNewStScreen", "Back"))
         self.ButtonBack.clicked.connect(self.GoBack)
+        
 
     def CloseWindow(self):
         self.AddNewStScreen.destroy()
@@ -91,6 +100,7 @@ class Ui_AddNewStScreen(object):
         self.GB.show()
         self.GB.setWindowTitle("View Timetable")
         self.CloseWindow()
+
 
 
 if __name__ == "__main__":

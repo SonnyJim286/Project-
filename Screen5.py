@@ -80,6 +80,10 @@ class Ui_CreateNewTimetableScreen(object):
         self.retranslateUi(CreateNewTimetableScreen)
         QtCore.QMetaObject.connectSlotsByName(CreateNewTimetableScreen)
 
+        self.PNBox.addItem("")
+        self.PNBox.addItem("5")
+        self.PNBox.addItem("6")
+
     def retranslateUi(self, CreateNewTimetableScreen):
         _translate = QtCore.QCoreApplication.translate
         CreateNewTimetableScreen.setWindowTitle(_translate("CreateNewTimetableScreen", "MainWindow"))

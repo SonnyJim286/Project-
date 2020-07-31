@@ -35,7 +35,7 @@ class Ui_AddNewStScreen(object):
         font.setPointSize(16)
         self.Sub.setFont(font)
         self.Sub.setObjectName("Sub")
-        self.Name = QtWidgets.QTextEdit(self.centralwidget)
+        self.Name = QtWidgets.QLineEdit(self.centralwidget)
         self.Name.setGeometry(QtCore.QRect(200, 90, 201, 41))
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -86,6 +86,7 @@ class Ui_AddNewStScreen(object):
         self.StName.setText(_translate("AddNewStScreen", "Student Name:"))
         self.Sub.setText(_translate("AddNewStScreen", "Subject:"))
         self.ButtonAdd.setText(_translate("AddNewStScreen", "Add"))
+        self.ButtonAdd.clicked.connect(self.AddData)
         self.ButtonBack.setText(_translate("AddNewStScreen", "Back"))
         self.ButtonBack.clicked.connect(self.GoBack)
         
@@ -101,7 +102,12 @@ class Ui_AddNewStScreen(object):
         self.GB.setWindowTitle("View Timetable")
         self.CloseWindow()
 
-
+    def AddData(self):
+        file = open('Student Data.csv','a')
+        file.write(self.Name.text())
+        file.close()
+        self.GoBack()
+        
 
 if __name__ == "__main__":
     import sys

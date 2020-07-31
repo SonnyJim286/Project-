@@ -10,7 +10,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import Screen2
 
-
 class Ui_AddNewSubScreen(object):
     def setupUi(self, AddNewSubScreen):
         self.AddNewStScreen = AddNewSubScreen
@@ -30,7 +29,7 @@ class Ui_AddNewSubScreen(object):
         font.setPointSize(16)
         self.SubjectName.setFont(font)
         self.SubjectName.setObjectName("SubjectName")
-        self.SubName = QtWidgets.QTextEdit(self.centralwidget)
+        self.SubName = QtWidgets.QLineEdit(self.centralwidget)
         self.SubName.setGeometry(QtCore.QRect(200, 70, 221, 41))
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -66,6 +65,7 @@ class Ui_AddNewSubScreen(object):
         self.label.setText(_translate("AddNewSubScreen", "Add New Subject"))
         self.SubjectName.setText(_translate("AddNewSubScreen", "Subject Name:"))
         self.ButtonAdd.setText(_translate("AddNewSubScreen", "Add"))
+        self.ButtonAdd.clicked.connect(self.AddData)
         self.ButtonBack.setText(_translate("AddNewSubScreen", "Back"))
         self.ButtonBack.clicked.connect(self.GoBack)
 
@@ -80,6 +80,13 @@ class Ui_AddNewSubScreen(object):
         self.GB.show()
         self.GB.setWindowTitle("View Timetable")
         self.CloseWindow()
+
+
+    def AddData(self):
+        file = open('Subject.csv','a')
+        file.write(self.SubName.text())
+        file.close()
+        self.GoBack()
 
 
 if __name__ == "__main__":

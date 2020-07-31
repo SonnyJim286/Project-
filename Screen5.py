@@ -11,6 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import Screen1
 import tkinter as tk
 from tkinter import filedialog
+import pandas
 
 
 class Ui_CreateNewTimetableScreen(object):
@@ -117,8 +118,13 @@ class Ui_CreateNewTimetableScreen(object):
         StIFpath = filedialog.askdirectory() 
         STIF = filedialog.askopenfilename() 
 
+
         print('Student information file location:',StIFpath)
         print('Student information file location and fall name:',STIF)
+
+        df = pandas.read_csv(STIF)
+        print(df)
+
 
     def SubChoose(self):
         root = tk.Tk()
@@ -129,6 +135,9 @@ class Ui_CreateNewTimetableScreen(object):
 
         print('Subject information file location:',SUBIFpath)
         print('Subject information file location and fall name:',SUBIF)
+
+        df = pandas.read_csv(SUBIF)
+        print(df)
 
 
 

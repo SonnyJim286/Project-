@@ -65,6 +65,7 @@ class Ui_ViewTimetableScreen(object):
         self.AddSub.setText(_translate("ViewTimetableScreen", "Add Subject"))
         self.AddSt.setText(_translate("ViewTimetableScreen", "Add Student"))
         self.BottonSave.setText(_translate("ViewTimetableScreen", "Save"))
+        #self.BottonSave.clicked.connect(self.save) 
         self.ButtonBack.setText(_translate("ViewTimetableScreen", "Back"))
         self.ButtonBack.clicked.connect(self.GoBack)
         self.AddSt.setText(_translate("MainWindow", "Add Student"))
@@ -99,6 +100,7 @@ class Ui_ViewTimetableScreen(object):
         self.GB.setWindowTitle("Intial Screen")
         self.CloseWindow()
 
+    #def save(self):
 
 if __name__ == "__main__":
     import sys

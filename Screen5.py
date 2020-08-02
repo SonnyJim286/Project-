@@ -99,6 +99,7 @@ class Ui_CreateNewTimetableScreen(object):
         self.Back.clicked.connect(self.GoBack)
         self.StISF.clicked.connect(self.StChoose)
         self.SubSF.clicked.connect(self.SubChoose)
+        #self.Create.clicked.connect(self.CreateTimetable)
 
     def CloseWindow(self):
         self.CreateNewTimetableScreen.destroy()
@@ -118,13 +119,11 @@ class Ui_CreateNewTimetableScreen(object):
         StIFpath = filedialog.askdirectory() 
         STIF = filedialog.askopenfilename() 
 
-
         print('Student information file location:',StIFpath)
         print('Student information file location and fall name:',STIF)
 
         df = pandas.read_csv(STIF)
         print(df)
-
 
     def SubChoose(self):
         root = tk.Tk()
@@ -138,6 +137,8 @@ class Ui_CreateNewTimetableScreen(object):
 
         df = pandas.read_csv(SUBIF)
         print(df)
+
+    #def CreateTimetable(self):
 
 
 

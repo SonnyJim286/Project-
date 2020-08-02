@@ -9,6 +9,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import Screen2
+import Screen6
 
 class Ui_AddNewSubScreen(object):
     def setupUi(self, AddNewSubScreen):
@@ -71,6 +72,7 @@ class Ui_AddNewSubScreen(object):
 
 
     def CloseWindow(self):
+        
         self.AddNewStScreen.destroy()
 
     def GoBack(self):
@@ -83,10 +85,18 @@ class Ui_AddNewSubScreen(object):
 
 
     def AddData(self):
-        file = open('Subject.csv','a')
-        file.write(self.SubName.text())
-        file.close()
-        self.GoBack()
+        if self.SubName.text().isalpha() == True:
+            file = open('Subject.csv','a')
+            file.write(self.SubName.text())
+            file.close()
+            self.GoBack()
+        else:
+            self.HW = QtWidgets.QMainWindow()
+            self.HWui = Screen6.Ui_MainWindow()
+            self.HWui.setupUi(self.HW)
+            self.HW.show()
+            self.HW.setWindowTitle("Wrong input")
+            self.CloseWindow()
 
 
 if __name__ == "__main__":

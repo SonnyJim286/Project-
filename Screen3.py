@@ -9,6 +9,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import Screen2
+import Screen7
 
 class Ui_AddNewStScreen(object):
     def setupUi(self, AddNewStScreen):
@@ -103,10 +104,18 @@ class Ui_AddNewStScreen(object):
         self.CloseWindow()
 
     def AddData(self):
-        file = open('Student Data.csv','a')
-        file.write(self.Name.text())
-        file.close()
-        self.GoBack()
+        if self.Name.text().isalpha() == True:
+            file = open('Student Data.csv','a')
+            file.write(self.SubName.text())
+            file.close()
+            self.GoBack()
+        else:
+            self.HW = QtWidgets.QMainWindow()
+            self.HWui = Screen7.Ui_MainWindow()
+            self.HWui.setupUi(self.HW)
+            self.HW.show()
+            self.HW.setWindowTitle("Wrong input")
+            self.CloseWindow()
         
 
 if __name__ == "__main__":

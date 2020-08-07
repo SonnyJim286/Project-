@@ -10,12 +10,13 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import Screen2
 import Screen7
+import csv
 
 class Ui_AddNewStScreen(object):
     def setupUi(self, AddNewStScreen):
         self.AddNewStScreen = AddNewStScreen
         AddNewStScreen.setObjectName("AddNewStScreen")
-        AddNewStScreen.resize(800, 305)
+        AddNewStScreen.resize(800, 500)
         self.centralwidget = QtWidgets.QWidget(AddNewStScreen)
         self.centralwidget.setObjectName("centralwidget")
         self.AddStTitle = QtWidgets.QLabel(self.centralwidget)
@@ -42,20 +43,59 @@ class Ui_AddNewStScreen(object):
         font.setPointSize(12)
         self.Name.setFont(font)
         self.Name.setObjectName("Name")
-        self.Subject = QtWidgets.QComboBox(self.centralwidget)
-        self.Subject.setGeometry(QtCore.QRect(200, 150, 201, 41))
+        #########################################################
+        # Subject1
+        self.Subject1 = QtWidgets.QComboBox(self.centralwidget)
+        self.Subject1.setGeometry(QtCore.QRect(200, 150, 201, 41))
         font = QtGui.QFont()
         font.setPointSize(16)
-        self.Subject.setFont(font)
-        self.Subject.setObjectName("Subject")
+        self.Subject1.setFont(font)
+        self.Subject1.setObjectName("Subject")
+        #Subject2
+        self.Subject2 = QtWidgets.QComboBox(self.centralwidget)
+        self.Subject2.setGeometry(QtCore.QRect(200, 200, 201, 41))
+        font = QtGui.QFont()
+        font.setPointSize(16)
+        self.Subject2.setFont(font)
+        self.Subject2.setObjectName("Subject")
+        #Subject3
+        self.Subject3 = QtWidgets.QComboBox(self.centralwidget)
+        self.Subject3.setGeometry(QtCore.QRect(200, 250, 201, 41))
+        font = QtGui.QFont()
+        font.setPointSize(16)
+        self.Subject3.setFont(font)
+        self.Subject3.setObjectName("Subject")
+        #Subject4
+        self.Subject4 = QtWidgets.QComboBox(self.centralwidget)
+        self.Subject4.setGeometry(QtCore.QRect(200, 300, 201, 41))
+        font = QtGui.QFont()
+        font.setPointSize(16)
+        self.Subject4.setFont(font)
+        self.Subject4.setObjectName("Subject")
+        #Subject5
+        self.Subject5 = QtWidgets.QComboBox(self.centralwidget)
+        self.Subject5.setGeometry(QtCore.QRect(200, 350, 201, 41))
+        font = QtGui.QFont()
+        font.setPointSize(16)
+        self.Subject5.setFont(font)
+        self.Subject5.setObjectName("Subject")
+        #Subject6
+        self.Subject6 = QtWidgets.QComboBox(self.centralwidget)
+        self.Subject6.setGeometry(QtCore.QRect(200, 400, 201, 41))
+        font = QtGui.QFont()
+        font.setPointSize(16)
+        self.Subject6.setFont(font)
+        self.Subject6.setObjectName("Subject")
+
+        #############################################################
         self.ButtonAdd = QtWidgets.QPushButton(self.centralwidget)
-        self.ButtonAdd.setGeometry(QtCore.QRect(600, 210, 91, 41))
+        self.ButtonAdd.setGeometry(QtCore.QRect(600, 400, 91, 41))
         font = QtGui.QFont()
         font.setPointSize(20)
         self.ButtonAdd.setFont(font)
         self.ButtonAdd.setObjectName("ButtonAdd")
         self.ButtonBack = QtWidgets.QPushButton(self.centralwidget)
-        self.ButtonBack.setGeometry(QtCore.QRect(700, 210, 91, 41))
+        self.ButtonBack.setGeometry(QtCore.QRect(700, 400, 91, 41))
         font = QtGui.QFont()
         font.setPointSize(20)
         self.ButtonBack.setFont(font)
@@ -72,12 +112,14 @@ class Ui_AddNewStScreen(object):
         self.retranslateUi(AddNewStScreen)
         QtCore.QMetaObject.connectSlotsByName(AddNewStScreen)
 
-        self.Subject.addItem("")
-        self.Subject.addItem("Chinese")
-        self.Subject.addItem("EAL")
-        self.Subject.addItem("Math")
-        self.Subject.addItem("Computing")
-        self.Subject.addItem("PE")
+        subject_list = ["", "None", "Chinese", "EAL", "Math", "Computing", "PE"]
+
+        self.Subject1.addItems(subject_list)
+        self.Subject2.addItems(subject_list)
+        self.Subject3.addItems(subject_list)
+        self.Subject4.addItems(subject_list)
+        self.Subject5.addItems(subject_list)
+        self.Subject6.addItems(subject_list)
 
 
     def retranslateUi(self, AddNewStScreen):
@@ -105,10 +147,15 @@ class Ui_AddNewStScreen(object):
 
     def AddData(self):
         if self.Name.text().isalpha() == True:
-            file = open('Student Data.csv','a')
-            file.write(self.SubName.text())
-            file.close()
+
+            with open('StudentData.csv', mode='a') as StudentData:
+                StudentData_writer = csv.writer(StudentData, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+
+                StudentData_writer.writerow([self.Name.text(), self.Subject1.currentText(), 
+                self.Subject2.currentText(), self.Subject3.currentText(), self.Subject4.currentText(), self.Subject5.currentText(), self.Subject6.currentText(),])
+            
             self.GoBack()
+
         else:
             self.HW = QtWidgets.QMainWindow()
             self.HWui = Screen7.Ui_MainWindow()

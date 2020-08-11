@@ -11,11 +11,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import Screen2
 import Screen7
 import csv
+subject_list = []
 with open("Subject.csv") as csvfile:
     reader = csv.reader(csvfile)
     for row in reader:
-        subject_list = [str(row[0])]
-
+        subject_list.append(str(row[0]))
 
 
 class Ui_AddNewStScreen(object):

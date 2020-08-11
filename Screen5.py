@@ -13,7 +13,7 @@ import tkinter as tk
 from tkinter import filedialog
 import pandas
 
-
+# Main screen
 class Ui_CreateNewTimetableScreen(object):
     def setupUi(self, CreateNewTimetableScreen):
         self.CreateNewTimetableScreen = CreateNewTimetableScreen
@@ -101,9 +101,11 @@ class Ui_CreateNewTimetableScreen(object):
         self.SubSF.clicked.connect(self.SubChoose)
         #self.Create.clicked.connect(self.CreateTimetable)
 
+    # Close screen form
     def CloseWindow(self):
         self.CreateNewTimetableScreen.destroy()
 
+    # Back button
     def GoBack(self):
         self.GB = QtWidgets.QMainWindow()
         self.GBui = Screen1.Ui_IntialScreen()
@@ -112,6 +114,7 @@ class Ui_CreateNewTimetableScreen(object):
         self.GB.setWindowTitle("Intial Screen")
         self.CloseWindow()
     
+    # Button for choose the student data file
     def StChoose(self):
         root = tk.Tk()
         root.withdraw()
@@ -125,6 +128,7 @@ class Ui_CreateNewTimetableScreen(object):
         df = pandas.read_csv(STIF)
         print(df)
 
+    # Button for choose the subject data file
     def SubChoose(self):
         root = tk.Tk()
         root.withdraw()
@@ -138,6 +142,7 @@ class Ui_CreateNewTimetableScreen(object):
         df = pandas.read_csv(SUBIF)
         print(df)
 
+    # Button for create timetable (not finish )
     #def CreateTimetable(self):
 
 

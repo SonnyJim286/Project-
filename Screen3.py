@@ -12,6 +12,14 @@ import Screen2
 import Screen7
 import csv
 
+# int subject list
+subject_list = []
+with open("Subject.csv") as csvfile:
+    reader = csv.reader(csvfile)
+    for row in reader:
+        subject_list.append(str(row[0]))
+
+# Main Screen
 class Ui_AddNewStScreen(object):
     def setupUi(self, AddNewStScreen):
         self.AddNewStScreen = AddNewStScreen
@@ -112,8 +120,6 @@ class Ui_AddNewStScreen(object):
         self.retranslateUi(AddNewStScreen)
         QtCore.QMetaObject.connectSlotsByName(AddNewStScreen)
 
-        subject_list = ["", "None", "Chinese", "EAL", "Math", "Computing", "PE"]
-
         self.Subject1.addItems(subject_list)
         self.Subject2.addItems(subject_list)
         self.Subject3.addItems(subject_list)
@@ -133,10 +139,11 @@ class Ui_AddNewStScreen(object):
         self.ButtonBack.setText(_translate("AddNewStScreen", "Back"))
         self.ButtonBack.clicked.connect(self.GoBack)
         
-
+    # Close screen program
     def CloseWindow(self):
         self.AddNewStScreen.destroy()
 
+    # Back button
     def GoBack(self):
         self.GB = QtWidgets.QMainWindow()
         self.GBui = Screen2.Ui_ViewTimetableScreen()
@@ -145,6 +152,7 @@ class Ui_AddNewStScreen(object):
         self.GB.setWindowTitle("View Timetable")
         self.CloseWindow()
 
+    # Add button
     def AddData(self):
         if self.Name.text().isalpha() == True:
 

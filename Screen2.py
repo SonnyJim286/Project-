@@ -12,7 +12,7 @@ import Screen1
 import Screen3
 import Screen4
 
-
+# Main Screen
 class Ui_ViewTimetableScreen(object):
     def setupUi(self, ViewTimetableScreen):
         self.ViewTimetableScreen = ViewTimetableScreen
@@ -73,9 +73,11 @@ class Ui_ViewTimetableScreen(object):
         self.AddSub.setText(_translate("MainWindow", "Add Subject"))
         self.AddSub.clicked.connect(self.AddSubject)
 
+    # Close screen form
     def CloseWindow(self):
         self.ViewTimetableScreen.destroy()
 
+    # AddStudent button
     def AddStudent(self):
         self.ADST = QtWidgets.QMainWindow()
         self.ADSTui = Screen3.Ui_AddNewStScreen()
@@ -84,6 +86,7 @@ class Ui_ViewTimetableScreen(object):
         self.ADST.setWindowTitle("Add New Student")
         self.CloseWindow()
 
+    # Add Subject button
     def AddSubject(self):
         self.ADSU = QtWidgets.QMainWindow()
         self.ADSUui = Screen4.Ui_AddNewSubScreen()
@@ -91,7 +94,8 @@ class Ui_ViewTimetableScreen(object):
         self.ADSU.show()
         self.ADSU.setWindowTitle("Add New Subject")
         self.CloseWindow()
-
+    
+    # Back button
     def GoBack(self):
         self.GB = QtWidgets.QMainWindow()
         self.GBui = Screen1.Ui_IntialScreen()

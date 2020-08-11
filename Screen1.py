@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import Screen2
 import Screen5
 
-
+# Main screen
 class Ui_IntialScreen(object):
     def setupUi(self, IntialScreen):
         self.IntialScreen = IntialScreen
@@ -70,9 +70,11 @@ class Ui_IntialScreen(object):
         self.Createtimetable.setText(_translate("IntialScreen", "Createtimetable"))
         self.Createtimetable.clicked.connect(self.Create)
 
+    # Close screen form
     def CloseWindow(self):
         self.IntialScreen.destroy()
 
+    # Button to View timetable screen
     def View(self):
         self.Viewer = QtWidgets.QMainWindow()
         self.Viewerui = Screen2.Ui_ViewTimetableScreen()
@@ -81,6 +83,7 @@ class Ui_IntialScreen(object):
         self.Viewer.setWindowTitle("View Timetable")
         self.CloseWindow()
 
+    # Button to Create timetable screen
     def Create(self):
         self.Creater = QtWidgets.QMainWindow()
         self.Createrui = Screen5.Ui_CreateNewTimetableScreen()

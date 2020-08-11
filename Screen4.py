@@ -11,6 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import Screen2
 import Screen6
 
+# Main screen
 class Ui_AddNewSubScreen(object):
     def setupUi(self, AddNewSubScreen):
         self.AddNewStScreen = AddNewSubScreen
@@ -70,11 +71,12 @@ class Ui_AddNewSubScreen(object):
         self.ButtonBack.setText(_translate("AddNewSubScreen", "Back"))
         self.ButtonBack.clicked.connect(self.GoBack)
 
-
+    # Close screen form
     def CloseWindow(self):
         
         self.AddNewStScreen.destroy()
 
+    # Back button
     def GoBack(self):
         self.GB = QtWidgets.QMainWindow()
         self.GBui = Screen2.Ui_ViewTimetableScreen()
@@ -83,7 +85,7 @@ class Ui_AddNewSubScreen(object):
         self.GB.setWindowTitle("View Timetable")
         self.CloseWindow()
 
-
+    # Add button
     def AddData(self):
         if self.SubName.text().isalpha() == True:
             file = open('Subject.csv','a')

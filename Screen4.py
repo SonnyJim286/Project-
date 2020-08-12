@@ -10,6 +10,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import Screen2
 import Screen6
+import csv
 
 # Main screen
 class Ui_AddNewSubScreen(object):
@@ -88,9 +89,10 @@ class Ui_AddNewSubScreen(object):
     # Add button
     def AddData(self):
         if self.SubName.text().isalpha() == True:
-            file = open('Subject.csv','a')
-            file.write(self.SubName.text())
-            file.close()
+            with open('Subject.csv',mode='a') as Subject:
+                Subject_writer = csv.writer(Subject, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+
+                Subject_writer.writerow([self.SubName.text()])
             self.GoBack()
         else:
             self.HW = QtWidgets.QMainWindow()
